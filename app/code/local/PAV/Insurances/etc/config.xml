@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <PAV_Insurances>
+            <version>1.0.0</version>
+        </PAV_Insurances>
+    </modules>
+    <global>
+        <models>
+            <insurances>
+                <class>PAV_Insurances_Model</class>
+            </insurances>
+        </models>
+        <helpers>
+            <insurances>
+                <class>PAV_Insurances_Helper</class>
+            </insurances>
+        </helpers>
+        <sales>
+            <quote>
+                <totals>
+                    <insurance>
+                        <class>PAV_Insurances_Model_InsuranceTotal</class>
+                        <after>subtotal</after>
+                    </insurance>
+                </totals>
+            </quote>
+        </sales>
+    </global>
+    <default>
+        <insurances>
+            <settings>
+                <enabled>0</enabled>
+                <type>0</type>
+            </settings>
+        </insurances>
+    </default>
+</config>

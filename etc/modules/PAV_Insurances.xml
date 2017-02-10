@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <PAV_Insurances>
+            <active>true</active>
+            <codePool>local</codePool>
+        </PAV_Insurances>
+    </modules>
+</config>
