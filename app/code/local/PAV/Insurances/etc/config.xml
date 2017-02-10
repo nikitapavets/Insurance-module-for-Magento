@@ -11,6 +11,32 @@
                 <class>PAV_Insurances_Model</class>
             </insurances>
         </models>
+        <resources>
+            <insurances_setup>
+                <setup>
+                    <module>PAV_Insurances</module>
+                </setup>
+            </insurances_setup>
+        </resources>
+        <blocks>
+            <insurances>
+                <class>PAV_Insurances_Block</class>
+            </insurances>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_totals>PAV_Insurances_Block_Adminhtml_Sales_Order</sales_order_totals>
+                    <sales_order_invoice_totals>PAV_Insurances_Block_Adminhtml_Sales_Invoice</sales_order_invoice_totals>
+                    <sales_order_creditmemo_totals>PAV_Insurances_Block_Adminhtml_Sales_Creditmemo</sales_order_creditmemo_totals>
+                </rewrite>
+            </adminhtml>
+            <sales>
+                <rewrite>
+                    <order_totals>PAV_Insurances_Block_Sales_Order</order_totals>
+                    <order_invoice_totals>PAV_Insurances_Block_Sales_Invoice</order_invoice_totals>
+                    <order_creditmemo_totals>PAV_Insurances_Block_Sales_Creditmemo</order_creditmemo_totals>
+                </rewrite>
+            </sales>
+        </blocks>
         <helpers>
             <insurances>
                 <class>PAV_Insurances_Helper</class>
@@ -25,7 +51,34 @@
                     </insurance>
                 </totals>
             </quote>
+            <order_invoice>
+                <totals>
+                    <insurance>
+                        <class>PAV_Insurances_Model_Invoice</class>
+                        <after>subtotal</after>
+                    </insurance>
+                </totals>
+            </order_invoice>
+            <order_creditmemo>
+                <totals>
+                    <insurance>
+                        <class>PAV_Insurances_Model_Creditmemo</class>
+                        <after>subtotal</after>
+                    </insurance>
+                </totals>
+            </order_creditmemo>
         </sales>
+        <events>
+            <sales_order_place_before>
+                <observers>
+                    <insurance_order_save_before>
+                        <type>singleton</type>
+                        <class>insurances/observer</class>
+                        <method>orderSaveBefore</method>
+                    </insurance_order_save_before>
+                </observers>
+            </sales_order_place_before>
+        </events>
     </global>
     <default>
         <insurances>
