@@ -12,7 +12,7 @@ class PAV_Insurances_Model_Source_Enabled
     {
         return array(
             array('value' => self::ENABLED, 'label' => 'Enabled'),
-            array('value' => self::DISABLED, 'label' => 'Disabled')
+            array('value' => self::DISABLED, 'label' => 'Disabled'),
         );
     }
 
@@ -23,7 +23,7 @@ class PAV_Insurances_Model_Source_Enabled
     {
         return array(
             self::ENABLED => 'Enabled',
-            self::DISABLED => 'Disabled'
+            self::DISABLED => 'Disabled',
         );
     }
 }

@@ -1,22 +1,27 @@
 <?php
-//
-//$installer = $this;
-//$table = $installer->getTable('sales/order');
-//die($table);
-//$installer->startSetup();
-//$table = $installer->getConnection()
-//    ->addColumn('test_column', Varien_Db_Ddl_Table::TYPE_NUMERIC, array('15', '5'), array(
-//        'default'  => 0.0,
-//    ));
-//$installer->endSetup();
 
 $this->startSetup();
 $connection = $this->getConnection();
 
 $connection->addColumn(
     $this->getTable('sales/order'),
-    'working',
-    "INT DEFAULT NULL"
+    'shipping_insurance',
+    "NUMERIC (10, 2) DEFAULT NULL"
+);
+$connection->addColumn(
+    $this->getTable('sales/order'),
+    'base_shipping_insurance',
+    "NUMERIC (10, 2) DEFAULT NULL"
+);
+$connection->addColumn(
+    $this->getTable('sales/quote_address'),
+    'shipping_insurance',
+    "NUMERIC (10, 2) DEFAULT NULL"
+);
+$connection->addColumn(
+    $this->getTable('sales/quote_address'),
+    'base_shipping_insurance',
+    "NUMERIC (10, 2) DEFAULT NULL"
 );
 
 $this->endSetup();

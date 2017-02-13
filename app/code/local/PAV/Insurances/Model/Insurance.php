@@ -6,19 +6,19 @@ class PAV_Insurances_Model_Insurance extends Mage_Core_Model_Abstract
     const TYPE_PERCENT = 1;
 
     /**
-     * @return bool
-     */
-    public static function isEnable()
-    {
-        return (bool)Mage::getStoreConfig('insurances/settings/enabled');
-    }
-
-    /**
      * @return bool|string
      */
     public static function getType()
     {
         return self::isEnable() ? Mage::getStoreConfig('insurances/settings/insurance_type') : false;
+    }
+
+    /**
+     * @return bool
+     */
+    public static function isEnable()
+    {
+        return (bool)Mage::getStoreConfig('insurances/settings/enabled');
     }
 
     /**

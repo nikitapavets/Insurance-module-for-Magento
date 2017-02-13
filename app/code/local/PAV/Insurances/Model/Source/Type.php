@@ -12,7 +12,7 @@ class PAV_Insurances_Model_Source_Type
     {
         return array(
             array('value' => self::ABSOLUTE_VALUE, 'label' => 'Absolute value'),
-            array('value' => self::PERCENT_VALUE, 'label' => 'Percentage of the value')
+            array('value' => self::PERCENT_VALUE, 'label' => 'Percentage of the value'),
         );
     }
 
@@ -23,7 +23,7 @@ class PAV_Insurances_Model_Source_Type
     {
         return array(
             self::ABSOLUTE_VALUE => 'Absolute value',
-            self::PERCENT_VALUE => 'Percentage of the value'
+            self::PERCENT_VALUE => 'Percentage of the value',
         );
     }
 }
