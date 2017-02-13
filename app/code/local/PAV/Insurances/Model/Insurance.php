@@ -10,7 +10,7 @@ class PAV_Insurances_Model_Insurance extends Mage_Core_Model_Abstract
      */
     public static function getType()
     {
-        return self::isEnable() ? Mage::getStoreConfig('insurances/settings/insurance_type') : false;
+        return self::isEnable() ? Mage::getStoreConfig('insurances/settings/type') : false;
     }
 
     /**
