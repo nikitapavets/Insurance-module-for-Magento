@@ -4,6 +4,9 @@
         <PAV_Insurances>
             <active>true</active>
             <codePool>local</codePool>
+            <depends>
+                <Mage_Checkout/>
+            </depends>
         </PAV_Insurances>
     </modules>
 </config>

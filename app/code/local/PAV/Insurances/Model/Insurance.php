@@ -10,7 +10,15 @@ class PAV_Insurances_Model_Insurance extends Mage_Core_Model_Abstract
      */
     public static function getType()
     {
-        return self::isEnable() ? Mage::getStoreConfig('insurances/settings/type') : false;
+        return self::isChecked() ? Mage::getStoreConfig('insurances/settings/type') : false;
+    }
+
+    /**
+     * @return bool|string
+     */
+    public static function isChecked()
+    {
+        return (bool)self::isEnable() ? Mage::getStoreConfig('insurances/settings/is_checked') : false;
     }
 
     /**
@@ -26,7 +34,7 @@ class PAV_Insurances_Model_Insurance extends Mage_Core_Model_Abstract
      */
     public static function getAbsoluteValue()
     {
-        return self::isEnable() ? Mage::getStoreConfig('insurances/settings/absolute_value') : false;
+        return self::isChecked() ? Mage::getStoreConfig('insurances/settings/absolute_value') : false;
     }
 
     /**
@@ -34,9 +42,18 @@ class PAV_Insurances_Model_Insurance extends Mage_Core_Model_Abstract
      */
     public static function getPersentValue()
     {
-        return self::isEnable() ? Mage::getStoreConfig('insurances/settings/percent_value') : false;
+        return self::isChecked() ? Mage::getStoreConfig('insurances/settings/percent_value') : false;
     }
 
+    public static function setChecked()
+    {
+        Mage::app()->getConfig()->saveConfig('insurances/settings/is_checked', 1);
+    }
+
+    public static function resetChecked()
+    {
+        Mage::app()->getConfig()->saveConfig('insurances/settings/is_checked', 0);
+    }
 
     public function _construct()
     {
