@@ -19,7 +19,7 @@ class PAV_Insurances_Model_QuoteAddressTotal extends Mage_Sales_Model_Quote_Addr
             $insuranceValue = PAV_Insurances_Model_Insurance::getAbsoluteValue();
             $address->setShippingInsurance($insuranceValue);
             $address->setBaseShippingInsurance($insuranceValue);
-        } else {
+        } elseif (PAV_Insurances_Model_Insurance::getType() == PAV_Insurances_Model_Insurance::TYPE_PERCENT) {
             $totals = array_sum($address->getAllTotalAmounts());
             $baseTotals = array_sum($address->getAllBaseTotalAmounts());
             $insuranceValue = PAV_Insurances_Model_Insurance::getPersentValue();

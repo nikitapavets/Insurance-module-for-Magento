@@ -9,12 +9,12 @@ class PAV_Insurances_OnepageController extends Mage_Checkout_OnepageController
      */
     public function saveShippingMethodAction()
     {
-        parent::saveShippingMethodAction();
-
         if ($this->getRequest()->getPost('is_shipping_insurance') == 'on') {
             PAV_Insurances_Model_Insurance::setChecked();
         } else {
             PAV_Insurances_Model_Insurance::resetChecked();
         }
+
+        parent::saveShippingMethodAction();
     }
 }

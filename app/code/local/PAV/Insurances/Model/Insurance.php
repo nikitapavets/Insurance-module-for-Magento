@@ -4,13 +4,14 @@ class PAV_Insurances_Model_Insurance extends Mage_Core_Model_Abstract
 {
     const TYPE_ABSOLUTE = 0;
     const TYPE_PERCENT = 1;
+    const NO_TYPE = 2;
 
     /**
      * @return bool|string
      */
     public static function getType()
     {
-        return self::isChecked() ? Mage::getStoreConfig('insurances/settings/type') : false;
+        return self::isChecked() ? Mage::getStoreConfig('insurances/settings/type') : self::NO_TYPE;
     }
 
     /**
