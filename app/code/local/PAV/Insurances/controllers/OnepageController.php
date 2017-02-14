@@ -17,4 +17,10 @@ class PAV_Insurances_OnepageController extends Mage_Checkout_OnepageController
 
         parent::saveShippingMethodAction();
     }
+
+    public function saveOrderAction()
+    {
+        PAV_Insurances_Model_Insurance::resetChecked();
+        parent::saveOrderAction();
+    }
 }
