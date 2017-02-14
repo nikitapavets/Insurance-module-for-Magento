@@ -8,12 +8,12 @@ class PAV_Insurances_Model_Insurance extends Mage_Core_Model_Abstract
 
     public static function setChecked()
     {
-        Mage::app()->getConfig()->saveConfig('insurances/settings/is_checked', 1);
+        Mage::getSingleton('core/session')->setCheckedShippingInsurance(1);
     }
 
     public static function resetChecked()
     {
-        Mage::app()->getConfig()->saveConfig('insurances/settings/is_checked', 0);
+        Mage::getSingleton('core/session')->setCheckedShippingInsurance(0);
     }
 
     /**
@@ -69,7 +69,8 @@ class PAV_Insurances_Model_Insurance extends Mage_Core_Model_Abstract
      */
     public static function isChecked()
     {
-        return (bool)self::isEnable() ? Mage::getStoreConfig('insurances/settings/is_checked') : false;
+        return (bool)self::isEnable() ?
+            Mage::getSingleton('core/session')->getCheckedShippingInsurance() : false;
     }
 
     public function _construct()
